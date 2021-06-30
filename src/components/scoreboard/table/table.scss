@@ -1,0 +1,101 @@
+@import '/src/scss/variables.scss';
+
+.table {
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	&__terminal-field {
+		text-align: center;
+		font-weight: 700;
+		font-size: 22px;
+		color: $color-green;
+
+		span {
+			border: 1px solid $border-color-green;
+			border-radius: 50%;
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			line-height: 35px;
+		}
+
+		&_blue {
+			color: $color-blue;
+
+			span {
+				border: 1px solid $border-color-blue;
+			}
+		}
+	}
+
+	&__status-field {
+		min-width: 170px;
+	}
+
+	&__company-field {
+		min-width: 197px;
+		display: flex;
+		align-items: center;
+
+		img {
+			width: 63px;
+			height: 38px;
+		}
+	}
+
+	&__details-link {
+		opacity: 0;
+		color: $color-blue;
+		text-decoration: none;
+		border-bottom: 1px solid $border-color-blue;
+		transition: opacity 0.2s ease-out, border-bottom 0.2s ease-out;
+
+		&:hover {
+			border-bottom: 0px solid transparent;
+		}
+	}
+}
+
+th {
+	text-align: left;
+	padding: 12px;
+	color: #95989a;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+td {
+	padding: 16px 10px;
+	line-height: 40px;
+}
+
+tr {
+	display: flex;
+	align-items: center;
+	& > * {
+		flex: 1;
+	}
+}
+
+tbody {
+	tr {
+		background-color: #fff;
+
+		&:nth-of-type(odd) {
+			background-color: rgb(215 238 249 / 45%);
+		}
+
+		&:hover {
+			box-shadow: 0 5px 10px rgb(0 0 0 / 20%);
+			z-index: 2;
+
+			.table__details-link {
+				cursor: pointer;
+				opacity: 1;
+			}
+		}
+	}
+}

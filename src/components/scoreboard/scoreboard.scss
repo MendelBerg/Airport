@@ -1,10 +1,8 @@
 @import '../../scss/variables.scss';
 
 .scoreboard {
-	margin-bottom: 20px;
 	background-color: white;
 	width: 100vw;
-	height: 300px;
 	border-radius: 60px 60px 0 0;
 
 	@media (min-width: 992px) {
@@ -17,7 +15,6 @@
 	&__options {
 		height: 60px;
 		display: flex;
-		border-radius: 60px 60px 0 0;
 	}
 	&__option {
 		display: flex;
