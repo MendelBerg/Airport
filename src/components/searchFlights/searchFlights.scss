@@ -1,14 +1,18 @@
+@import '../../scss/variables.scss';
+
 .search-flights {
-	padding: 40px 0 20px;
+	padding: 0 0 40px;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	width: 100vw;
+	margin: auto;
 
 	@media (min-width: 768px) {
-		width: 600px;
+		padding-top: 40px;
 		padding-left: 10px;
 		padding-right: 10px;
+		width: 600px;
 	}
 
 	@media (min-width: 992px) {
@@ -43,6 +47,16 @@
 	align-self: stretch;
 	position: relative;
 	display: flex;
+
+	@media (min-width: 768px) {
+		width: 600px;
+		align-self: center;
+	}
+
+	@media (min-width: 992px) {
+		width: 800px;
+		align-self: flex-start;
+	}
 	&__input {
 		height: 50px;
 		font-size: 16px;
@@ -72,7 +86,7 @@
 	font-size: 20px;
 	font-weight: 700;
 	color: white;
-	background-color: #1eb7ee;
+	background-color: $background-color-blue;
 	border: 0;
 	text-transform: uppercase;
 	text-align: left;
