@@ -4,8 +4,11 @@
 	display: flex;
 	align-items: center;
 	position: fixed;
+	top: 0;
+	left: 0;
 	background-color: #1eb7ee;
 	box-shadow: 0 5px 10px rgb(37 40 41 / 30%);
+	z-index: 1000;
 
 	&__logo {
 		width: 25%;
@@ -25,7 +28,6 @@
 	color: #fff;
 	font-size: 20px;
 	font-weight: 600;
-	cursor: pointer;
 
 	&__list {
 		display: flex;
@@ -34,7 +36,8 @@
 		list-style-type: none;
 	}
 	&__item {
-		padding: 0 35px;
+		margin: 0 35px;
+		cursor: pointer;
 	}
 	&__link {
 		text-decoration: none;
@@ -47,6 +50,7 @@
 
 .logo {
 	width: 40%;
+	cursor: pointer;
 	@media (max-width: 1199px) {
 		width: 125px;
 	}
