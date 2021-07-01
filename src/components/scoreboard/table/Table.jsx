@@ -5,7 +5,7 @@ import './table.scss';
 
 const Table = () => {
   return (  
-		<table class="scoreboard__options table">
+		<table className="scoreboard__options table">
 <thead>
 <tr>
 					<th>Термінал</th>
