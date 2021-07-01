@@ -11,8 +11,6 @@ export function convertDataBody(flights, flag) {
 	return flights[flag]
 		.filter(({ actual }) => moment(actual).format('DD-MM-Y') === currentDay)
 		.map(flight => {
-			console.log('currentDay ', flight['airportFromID.city'], currentDay);
-			console.log('actual ', flight['airportFromID.city'], moment(flight.actual).format('DD-MM-Y'));
 			const { term, timeTakeofFact: status } = flight;
 			const shedule = flight[flag === 'departure' ? 'timeDepShedule' : 'timeArrShedule'];
 			const city = flight[flag === 'departure' ? 'airportToID.city' : 'airportFromID.city'];
@@ -30,3 +28,4 @@ export function convertDataBody(flights, flag) {
 			};
 		});
 }
+
