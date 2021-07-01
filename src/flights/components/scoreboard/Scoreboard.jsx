@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable arrow-body-style */
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as tasksActions from '../../tasks.actions';
 import Options from './Options.jsx';
@@ -11,8 +12,17 @@ import {tasksListSelector} from '../../tasks.selectors';
 const Scoreboard = ({tasks, getTaskList}) => {
   return (
 		<div className="scoreboard">
-			<Options getTaskList={getTaskList} />
-			<Table flights={tasks} />
+			<BrowserRouter>
+					<Switch>
+						<Route exact path="/">
+							<Options getTaskList={getTaskList} />
+						</Route>
+						<Route path="/:flightsFlag">
+							<Options getTaskList={getTaskList} />
+						</Route>
+					</Switch>
+				</BrowserRouter>
+				<Table flights={tasks} />
 		</div>
   );
 };

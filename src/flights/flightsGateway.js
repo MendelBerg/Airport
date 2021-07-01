@@ -7,6 +7,8 @@ const baseUrl = `https://api.iev.aero/api/flights/${currentDay}`;
 
 export const fetchFlights = () => fetch(baseUrl).then(response => response.json());
 
+const getTime = time => moment(time).format('h:mm');
+
 export function convertDataBody(flights, flag) {
 	return flights[flag]
 		.filter(({ actual }) => moment(actual).format('DD-MM-Y') === currentDay)
@@ -19,9 +21,9 @@ export function convertDataBody(flights, flag) {
 
 			return {
 				term,
-				shedule,
+				shedule: getTime(shedule),
 				city,
-				status,
+				status: getTime(status),
 				logo,
 				airportName,
 				flightCode,
