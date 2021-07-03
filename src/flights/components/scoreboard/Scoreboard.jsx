@@ -7,9 +7,9 @@ import * as tasksActions from '../../tasks.actions';
 import Options from './Options.jsx';
 import Table from './table/Table.jsx';
 import './scoreboard.scss';
-import { tasksListSelector, inputValueSelector, pathSelector } from '../../tasks.selectors';
+import { tasksListSelector, inputValueSelector, searchSelector } from '../../tasks.selectors';
 
-const Scoreboard = ({ tasks, getTaskList, value, pathChanged }) => {
+const Scoreboard = ({ tasks, getTaskList, value, pathChanged, search }) => {
 	return (
 		<div className="scoreboard">
 			<BrowserRouter>
@@ -18,7 +18,12 @@ const Scoreboard = ({ tasks, getTaskList, value, pathChanged }) => {
 						<Options pathChanged={pathChanged} value={value} getTaskList={getTaskList} />
 					</Route>
 					<Route path="/:flightsFlag">
-						<Options pathChanged={pathChanged} value={value} getTaskList={getTaskList} />
+						<Options
+							pathChanged={pathChanged}
+							value={value}
+							getTaskList={getTaskList}
+							search={search}
+						/>
 					</Route>
 				</Switch>
 			</BrowserRouter>
@@ -37,6 +42,7 @@ const mapState = state => {
 	return {
 		tasks: tasksListSelector(state),
 		value: inputValueSelector(state),
+		search: searchSelector(state),
 	};
 };
 

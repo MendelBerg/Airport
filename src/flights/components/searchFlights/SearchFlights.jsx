@@ -7,11 +7,17 @@ import { inputValueSelector, pathSelector } from '../../tasks.selectors';
 import * as tasksActions from '../../tasks.actions';
 import './searchFlights.scss';
 
-const SearchFlights = ({ getTaskList, inputValueChanged, value, path }) => {
+const SearchFlights = ({ getTaskList, inputValueChanged, value, path, searchChanged }) => {
 	return (
 		<div className="search-flights">
 			<h1 className="search-flights__title">Пошук рейсу</h1>
-			<SearchInput path={path} value={value} getTaskList={getTaskList} inputValueChanged={inputValueChanged} />
+			<SearchInput
+				path={path}
+				value={value}
+				getTaskList={getTaskList}
+				inputValueChanged={inputValueChanged}
+				searchChanged={searchChanged}
+			/>
 		</div>
 	);
 };
@@ -19,6 +25,7 @@ const SearchFlights = ({ getTaskList, inputValueChanged, value, path }) => {
 const mapDispatch = {
 	getTaskList: tasksActions.getTaskList,
 	inputValueChanged: tasksActions.inputValueChanged,
+	searchChanged: tasksActions.searchChanged,
 };
 
 const mapState = state => {
