@@ -7,18 +7,18 @@ import * as tasksActions from '../../tasks.actions';
 import Options from './Options.jsx';
 import Table from './table/Table.jsx';
 import './scoreboard.scss';
-import { tasksListSelector, inputValueSelector } from '../../tasks.selectors';
+import { tasksListSelector, inputValueSelector, pathSelector } from '../../tasks.selectors';
 
-const Scoreboard = ({ tasks, getTaskList, value }) => {
+const Scoreboard = ({ tasks, getTaskList, value, pathChanged }) => {
 	return (
 		<div className="scoreboard">
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/">
-						<Options value={value} getTaskList={getTaskList} />
+						<Options pathChanged={pathChanged} value={value} getTaskList={getTaskList} />
 					</Route>
 					<Route path="/:flightsFlag">
-						<Options value={value} getTaskList={getTaskList} />
+						<Options pathChanged={pathChanged} value={value} getTaskList={getTaskList} />
 					</Route>
 				</Switch>
 			</BrowserRouter>
@@ -30,6 +30,7 @@ const Scoreboard = ({ tasks, getTaskList, value }) => {
 const mapDispatch = {
 	getTaskList: tasksActions.getTaskList,
 	inputValueChanged: tasksActions.inputValueChanged,
+	pathChanged: tasksActions.pathChanged,
 };
 
 const mapState = state => {

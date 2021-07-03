@@ -1,17 +1,18 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
+import { getPathOption } from '../../common';
 // import { inputValueChanged } from '../../tasks.actions';
 import './searchFlights.scss';
 
-const SearchInput = ({getTaskList, inputValueChanged, value}) => {
+const SearchInput = ({ getTaskList, inputValueChanged, value, path }) => {
 	const handleChange = event => {
 		inputValueChanged(event.target.value);
 	};
 
 	const search = event => {
 		event.preventDefault();
-		getTaskList('departure', value);
+		getTaskList(getPathOption(path), value);
 	};
 
 	return (

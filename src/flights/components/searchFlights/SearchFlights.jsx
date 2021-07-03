@@ -3,15 +3,15 @@
 import React from 'react';
 import SearchInput from './SearchInput.jsx';
 import { connect } from 'react-redux';
-import { inputValueSelector } from '../../tasks.selectors';
+import { inputValueSelector, pathSelector } from '../../tasks.selectors';
 import * as tasksActions from '../../tasks.actions';
 import './searchFlights.scss';
 
-const SearchFlights = ({ getTaskList, inputValueChanged, value }) => {
+const SearchFlights = ({ getTaskList, inputValueChanged, value, path }) => {
 	return (
 		<div className="search-flights">
 			<h1 className="search-flights__title">Пошук рейсу</h1>
-			<SearchInput value={value} getTaskList={getTaskList} inputValueChanged={inputValueChanged} />
+			<SearchInput path={path} value={value} getTaskList={getTaskList} inputValueChanged={inputValueChanged} />
 		</div>
 	);
 };
@@ -24,6 +24,7 @@ const mapDispatch = {
 const mapState = state => {
 	return {
 		value: inputValueSelector(state),
+		path: pathSelector(state),
 	};
 };
 

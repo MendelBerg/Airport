@@ -1,18 +1,18 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable arrow-body-style */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getPathOption } from '../../common';
 import classNames from 'classnames';
 import './scoreboard.scss';
 
-const Options = ({ getTaskList, value }) => {
-	const [flights, setFlights] = useState('departure');
+const Options = ({ getTaskList, value, pathChanged }) => {
 	const { flightsFlag } = useParams();
+	const flights = getPathOption(flightsFlag);
 
 	useEffect(() => {
-		const flag = flightsFlag ? flightsFlag.slice(0, -1) : 'departure';
-		setFlights(flag);
-		getTaskList(flag, value);
+		pathChanged(flightsFlag);
+		getTaskList(flights, value);
 	}, [flightsFlag]);
 
 	return (
