@@ -1,4 +1,3 @@
-// import { tasksListSelector } from './tasks.selectors';
 import { fetchFlights, convertDataBody } from './flightsGateway';
 
 export const FLIGHTS_LIST_RECIEVED = 'FLIGHTS_LIST_RECIEVED';

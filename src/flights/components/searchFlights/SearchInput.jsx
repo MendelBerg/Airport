@@ -5,18 +5,13 @@ import React, { useState } from 'react';
 import './searchFlights.scss';
 
 const SearchInput = ({getTaskList, inputValueChanged, value}) => {
-	// const [value, setValue] = useState('');
-	console.log('value', value);
-	// console.log('inputValueChanged', inputValueChanged);
-
 	const handleChange = event => {
-		// setValue(event.target.value);
 		inputValueChanged(event.target.value);
 	};
 
 	const search = event => {
 		event.preventDefault();
-		// getTaskList();
+		getTaskList('departure', value);
 	};
 
 	return (
