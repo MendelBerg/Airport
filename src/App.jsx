@@ -8,12 +8,12 @@ import Scoreboard from './flights/components/scoreboard/Scoreboard.jsx';
 import store from './store';
 
 const App = () => {
-  return (
+	return (
 		<>
 			<Header />
 			<main className="main">
-				<SearchFlights />
 				<Provider store={store}>
+					<SearchFlights />
 					<Scoreboard />
 				</Provider>
 			</main>

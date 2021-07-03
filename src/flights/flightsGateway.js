@@ -9,7 +9,8 @@ export const fetchFlights = () => fetch(baseUrl).then(response => response.json(
 
 const getTime = time => moment(time).format('h:mm');
 
-export function convertDataBody(flights, flag) {
+export function convertDataBody(flights, flag, value) {
+	console.log('value convertDataBody: ', value);
 	return flights[flag]
 		.filter(({ actual }) => moment(actual).format('DD-MM-Y') === currentDay)
 		.map(flight => {
