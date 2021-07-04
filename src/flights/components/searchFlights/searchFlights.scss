@@ -87,14 +87,18 @@
 }
 .btn {
 	width: 170px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+
 	font-size: 20px;
 	font-weight: 700;
 	color: white;
-	background-color: $background-color-blue;
-	border: 0;
 	text-transform: uppercase;
 	text-align: left;
-	padding: 0 20px;
+	text-decoration: none;
+	background-color: $background-color-blue;
+
 	border-radius: 0 80px 0 0;
 	transition: border-radius 0.3s ease-in-out;
 

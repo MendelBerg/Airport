@@ -2,7 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { getPathOption } from '../../common';
-// import { Link, BrowserRouter } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 import './searchFlights.scss';
 
 const SearchInput = ({ getTaskList, inputValueChanged, value, path, searchChanged }) => {
@@ -26,7 +26,14 @@ const SearchInput = ({ getTaskList, inputValueChanged, value, path, searchChange
 				value={value}
 				onChange={handleChange}
 			/>
-			<button className="btn search-form__btn">Знайти</button>
+			<BrowserRouter>
+				<Link
+					className="btn search-form__btn"
+					to={{ pathname: `/${path}`, search: `?search=${value}` }}
+				>
+					Знайти
+				</Link>
+			</BrowserRouter>
 		</form>
 	);
 };
