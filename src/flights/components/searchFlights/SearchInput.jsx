@@ -2,9 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { getPathOption } from '../../common';
-import { useLocation, useHistory } from 'react-router-dom';
-import qs from 'qs';
-// import { useLocation, useHistory } from 'react-router';
+// import { Link, BrowserRouter } from 'react-router-dom';
 import './searchFlights.scss';
 
 const SearchInput = ({ getTaskList, inputValueChanged, value, path, searchChanged }) => {
@@ -12,17 +10,8 @@ const SearchInput = ({ getTaskList, inputValueChanged, value, path, searchChange
 		inputValueChanged(event.target.value);
 	};
 
-	// let history = useHistory();
-	// let location = useLocation();
-	// console.log(location);
-
-	// const loc = useLocation();
-	// loc.search = `?search=${'value'}`;
-	// console.log('loc', loc);
-
 	const search = event => {
 		event.preventDefault();
-		console.log('value',value);
 		searchChanged(value);
 		getTaskList(getPathOption(path), value);
 	};

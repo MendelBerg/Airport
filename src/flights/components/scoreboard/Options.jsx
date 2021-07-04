@@ -1,19 +1,19 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable arrow-body-style */
 import React, { useEffect } from 'react';
-import { Link, useParams, useLocation, useHistory } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
+// import qs from 'qs';
 import { getPathOption } from '../../common';
 import classNames from 'classnames';
 import './scoreboard.scss';
 
-const Options = ({ getTaskList, value, pathChanged, search }) => {
+const Options = ({ getTaskList, pathChanged, search }) => {
 	const { flightsFlag } = useParams();
 	const flights = getPathOption(flightsFlag);
-	console.log('search', search);
 
 	useEffect(() => {
 		pathChanged(flightsFlag);
-		getTaskList(flights, value);
+		getTaskList(flights, search);
 	}, [flightsFlag]);
 
 	return (
