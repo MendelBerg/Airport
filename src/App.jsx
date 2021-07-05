@@ -4,20 +4,16 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import Header from './flights/components/header/Header.jsx';
-import SearchFlights from './flights/components/searchFlights/SearchFlights.jsx';
-import Scoreboard from './flights/components/scoreboard/Scoreboard.jsx';
+import Main from './flights/components/main/Main.jsx';
 import store from './store';
 
 const App = () => {
 	return (
 		<>
 			<Header />
-			<main className="main">
-				<Provider store={store}>
-					<SearchFlights />
-					<Scoreboard />
-				</Provider>
-			</main>
+			<Provider store={store}>
+				<Main />
+			</Provider>
 		</>
 	);
 };

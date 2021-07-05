@@ -14,8 +14,8 @@ const Options = ({ getFlightsList, pathChanged }) => {
 	const search = qs.parse(useLocation().search.slice(1));
 	const flights = getPathOption(pathType);
 
-	console.log('pathType', pathType);
-	console.log('search', search.search);
+	// console.log('pathType', pathType);
+	// console.log('search', search.search);
 
 	useEffect(() => {
 		pathChanged(pathType);
