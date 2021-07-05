@@ -7,7 +7,7 @@ import qs from 'qs';
 import { getPathOption } from '../../common';
 import classNames from 'classnames';
 
-import './scoreboard.scss';
+import './options.scss';
 
 const Options = ({ getFlightsList, pathChanged }) => {
 	const { pathType } = useParams();
@@ -21,10 +21,10 @@ const Options = ({ getFlightsList, pathChanged }) => {
 	}, [pathType, search]);
 
 	return (
-		<div className="scoreboard__options">
+		<div className="options">
 			<Link
-				className={classNames('scoreboard__option scoreboard__option_left', {
-					scoreboard__option_blue: flights === 'arrival',
+				className={classNames('options__option options__option_left', {
+					options__option_blue: flights === 'arrival',
 				})}
 				to={`/departures${search}`}
 			>
@@ -65,8 +65,8 @@ const Options = ({ getFlightsList, pathChanged }) => {
 				Виліт
 			</Link>
 			<Link
-				className={classNames('scoreboard__option scoreboard__option_right', {
-					scoreboard__option_blue: flights === 'departure',
+				className={classNames('options__option options__option_right', {
+					options__option_blue: flights === 'departure',
 				})}
 				to={`/arrivals${search}`}
 			>

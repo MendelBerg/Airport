@@ -28,6 +28,13 @@ export function convertDataBody(flights, pathType, search) {
 				airportName,
 				flightCode,
 			};
+		})
+		.sort((a, b) => {
+			const [hourA, minsA] = a.shedule.split(':');
+			const [hourB, minsB] = b.shedule.split(':');
+			if (+hourA > +hourB )return true;
+			if(+hourA === +hourB && +minsA > +minsB) return true;
+			return false;
 		});
 
 	return !search

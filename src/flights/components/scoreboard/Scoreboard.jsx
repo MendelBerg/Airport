@@ -3,9 +3,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Options from './Options.jsx';
-import Table from './table/Table.jsx';
-import FlightsNotFound from './table/FlightsNotFound.jsx';
+import Options from '../options/Options.jsx';
+import Table from '../table/Table.jsx';
+import FlightsNotFound from '../table/FlightsNotFound.jsx';
 
 import './scoreboard.scss';
 
