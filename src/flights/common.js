@@ -36,17 +36,7 @@ const compareSearch = (city, flightCode, search) =>
 
 export function convertDataBody(flights, pathType, search) {
 	const flightsToday = flights[pathType]
-		// .filter(({ actual }) => actual && moment(actual).format('DD-MM-Y') === currentDay)
-		.filter(el => {
-			console.log(el);
-			if (el['airportToID.city'] === 'Куопіо') {
-				console.log(el);
-				console.log(el['airportToID.city']);
-				console.log(el.actual);
-				console.log(moment.utc(el.actual).format('DD-MM-Y'));
-			}
-			return el.actual && moment(el.actual).format('DD-MM-Y') === currentDay;
-		})
+		.filter(({ actual }) => actual && moment(actual).format('DD-MM-Y') === currentDay)
 		.map(flight => extractFlightsData(flight, pathType))
 		.sort((a, b) => compareTime(a, b));
 
