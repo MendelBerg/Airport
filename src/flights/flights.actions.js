@@ -49,10 +49,10 @@ export const searchChanged = search => {
 	return action;
 };
 
-export const getFlightsList = (pathType, value) => {
+export const getFlightsList = (pathType, search) => {
 	const thunkAction = function (dispatch) {
 		fetchFlights().then(flightsList =>
-			dispatch(flightsListRecieved(convertDataBody(flightsList.body, pathType, value))),
+			dispatch(flightsListRecieved(convertDataBody(flightsList.body, pathType, search))),
 		);
 	};
 

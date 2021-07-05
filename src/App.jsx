@@ -2,6 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { Provider } from 'react-redux';
+
 import Header from './flights/components/header/Header.jsx';
 import SearchFlights from './flights/components/searchFlights/SearchFlights.jsx';
 import Scoreboard from './flights/components/scoreboard/Scoreboard.jsx';

@@ -9,7 +9,7 @@ export const fetchFlights = () => fetch(baseUrl).then(response => response.json(
 
 const getTime = time => moment(time).format('h:mm');
 
-export function convertDataBody(flights, pathType, value) {
+export function convertDataBody(flights, pathType, search) {
 	const targetFlights = flights[pathType]
 		.filter(({ actual }) => moment(actual).format('DD-MM-Y') === currentDay)
 		.map(flight => {
@@ -30,9 +30,11 @@ export function convertDataBody(flights, pathType, value) {
 			};
 		});
 
-	return !value
+	return !search
 		? targetFlights
 		: targetFlights.filter(
-				({ city, flightCode }) => city.includes(value) || flightCode.includes(value),
+				({ city, flightCode }) =>
+					city.toLowerCase().includes(search.toLowerCase()) ||
+					flightCode.toLowerCase().includes(search.toLowerCase()),
 		  );
 }
