@@ -11,16 +11,14 @@ import './scoreboard.scss';
 
 const Options = ({ getFlightsList, pathChanged }) => {
 	const { pathType } = useParams();
-	const search = qs.parse(useLocation().search.slice(1));
 	const flights = getPathOption(pathType);
-
-	// console.log('pathType', pathType);
-	// console.log('search', search.search);
+	const { search } = useLocation();
 
 	useEffect(() => {
+		const { search: searchValue } = qs.parse(search.slice(1));
 		pathChanged(pathType);
-		getFlightsList(flights, search.search);
-	}, [pathType]);
+		getFlightsList(flights, searchValue);
+	}, [pathType, search]);
 
 	return (
 		<div className="scoreboard__options">
@@ -28,7 +26,7 @@ const Options = ({ getFlightsList, pathChanged }) => {
 				className={classNames('scoreboard__option scoreboard__option_left', {
 					scoreboard__option_blue: flights === 'arrival',
 				})}
-				to="/departures"
+				to={`/departures${search}`}
 			>
 				<svg
 					data-v-27fc5867=""
@@ -70,7 +68,7 @@ const Options = ({ getFlightsList, pathChanged }) => {
 				className={classNames('scoreboard__option scoreboard__option_right', {
 					scoreboard__option_blue: flights === 'departure',
 				})}
-				to="/arrivals"
+				to={`/arrivals${search}`}
 			>
 				<svg
 					data-v-27fc5867=""
