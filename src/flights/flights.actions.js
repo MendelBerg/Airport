@@ -3,7 +3,6 @@ import { convertDataBody } from './common';
 
 export const FLIGHTS_LIST_RECIEVED = 'FLIGHTS_LIST_RECIEVED';
 export const INPUT_VALUE_CHANGED = 'INPUT_VALUE_CHANGED';
-export const PATH_CHANGED = 'PATH_CHANGED';
 
 export const flightsListRecieved = flightsList => {
 	const action = {
@@ -21,17 +20,6 @@ export const inputValueChanged = value => {
 		type: INPUT_VALUE_CHANGED,
 		payload: {
 			value,
-		},
-	};
-
-	return action;
-};
-
-export const pathChanged = path => {
-	const action = {
-		type: PATH_CHANGED,
-		payload: {
-			path,
 		},
 	};
 

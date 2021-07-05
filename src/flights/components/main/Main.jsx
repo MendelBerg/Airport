@@ -16,7 +16,7 @@ const Main = ({ flights, getFlightsList, pathChanged, inputValueChanged, value }
 		<main className="main">
 			<BrowserRouter>
 				<Search inputValueChanged={inputValueChanged} value={value} />
-				<Scoreboard value={value} flights={flights} getFlightsList={getFlightsList} pathChanged={pathChanged} />
+				<Scoreboard value={value} flights={flights} getFlightsList={getFlightsList} />
 			</BrowserRouter>
 		</main>
 	);
@@ -24,7 +24,6 @@ const Main = ({ flights, getFlightsList, pathChanged, inputValueChanged, value }
 
 const mapDispatch = {
 	getFlightsList: flightsActions.getFlightsList,
-	pathChanged: flightsActions.pathChanged,
 	inputValueChanged: flightsActions.inputValueChanged,
 };
 

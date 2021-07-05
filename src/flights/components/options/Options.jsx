@@ -9,14 +9,13 @@ import classNames from 'classnames';
 
 import './options.scss';
 
-const Options = ({ getFlightsList, pathChanged }) => {
+const Options = ({ getFlightsList }) => {
 	const { pathType } = useParams();
 	const flights = getPathOption(pathType);
 	const { search } = useLocation();
 
 	useEffect(() => {
 		const { search: searchValue } = qs.parse(search.slice(1));
-		pathChanged(pathType);
 		getFlightsList(flights, searchValue);
 	}, [pathType, search]);
 
