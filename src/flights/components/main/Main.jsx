@@ -11,7 +11,7 @@ import { flightsListSelector, inputValueSelector } from '../../flights.selectors
 import * as flightsActions from '../../flights.actions';
 
 
-const Main = ({ flights, getFlightsList, pathChanged, inputValueChanged, value }) => {
+const Main = ({ flights, getFlightsList, inputValueChanged, value }) => {
 	return (
 		<main className="main">
 			<BrowserRouter>
