@@ -1,24 +1,17 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable arrow-body-style */
 import React from 'react';
-
-import { getPathOption } from '../../common';
+import { Link, BrowserRouter } from 'react-router-dom';
 
 import './searchFlights.scss';
 
-const SearchInput = ({ getFlightsList, inputValueChanged, value, path, searchChanged }) => {
+const SearchInput = ({ inputValueChanged, value }) => {
 	const onChange = event => {
 		inputValueChanged(event.target.value);
 	};
 
-	const onSearch = event => {
-		event.preventDefault();
-		searchChanged(value);
-		getFlightsList(getPathOption(path), value);
-	};
-
 	return (
-		<form className="search-form" onSubmit={onSearch}>
+		<div className="search-form">
 			<i className="fa fa-search" aria-hidden="true"></i>
 			<input
 				className="search-form__input"
@@ -27,8 +20,12 @@ const SearchInput = ({ getFlightsList, inputValueChanged, value, path, searchCha
 				value={value}
 				onChange={onChange}
 			/>
-			<button className="btn search-form__btn">Знайти</button>
-		</form>
+			<BrowserRouter>
+				<Link className="search-form__btn btn" to={`/departures${value ? `?search=${value}` : ''}`}>
+					Знайти
+				</Link>
+			</BrowserRouter>
+		</div>
 	);
 };
 

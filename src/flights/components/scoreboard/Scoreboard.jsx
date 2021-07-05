@@ -4,7 +4,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { flightsListSelector, searchSelector } from '../../flights.selectors';
+import { flightsListSelector } from '../../flights.selectors';
 import * as flightsActions from '../../flights.actions';
 
 import Options from './Options.jsx';
@@ -13,21 +13,20 @@ import FlightsNotFound from './table/FlightsNotFound.jsx';
 
 import './scoreboard.scss';
 
-const Scoreboard = ({ flights, getFlightsList, pathChanged, searchValue }) => {
+const Scoreboard = ({ flights, getFlightsList, pathChanged }) => {
 	return (
 		<div className="scoreboard">
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/">
-						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} searchValue={searchValue} />
+						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} />
 					</Route>
 					<Route path="/:pathType">
-						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} searchValue={searchValue} />
+						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} />
 					</Route>
 				</Switch>
 			</BrowserRouter>
-			{flights.length ? <Table flights={flights} /> : <FlightsNotFound/>}
-			
+			{flights.length ? <Table flights={flights} /> : <FlightsNotFound />}
 		</div>
 	);
 };
@@ -40,7 +39,6 @@ const mapDispatch = {
 const mapState = state => {
 	return {
 		flights: flightsListSelector(state),
-		searchValue: searchSelector(state),
 	};
 };
 

@@ -8,22 +8,19 @@ import { getPathOption } from '../../common';
 import classNames from 'classnames';
 
 import './scoreboard.scss';
-// 
-const Options = ({ getFlightsList, pathChanged, search: searchValue }) => {
+
+const Options = ({ getFlightsList, pathChanged }) => {
 	const { pathType } = useParams();
-	// console.log('pathType', pathType);
-	// const { search } = useLocation();
-	// console.log('search', qs.parse(search.slice(1)));
+	const search = qs.parse(useLocation().search.slice(1));
 	const flights = getPathOption(pathType);
+
+	console.log('pathType', pathType);
+	console.log('search', search.search);
 
 	useEffect(() => {
 		pathChanged(pathType);
-		getFlightsList(flights, searchValue);
+		getFlightsList(flights, search.search);
 	}, [pathType]);
-
-	useEffect(() => {
-		getFlightsList(flights, searchValue);
-	}, [searchValue]);
 
 	return (
 		<div className="scoreboard__options">
@@ -105,7 +102,6 @@ const Options = ({ getFlightsList, pathChanged, search: searchValue }) => {
 				</svg>
 				Приліт
 			</Link>
-			<Link to="/arrivals?search=w">try</Link>
 		</div>
 	);
 };

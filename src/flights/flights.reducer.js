@@ -1,15 +1,9 @@
-import {
-	FLIGHTS_LIST_RECIEVED,
-	INPUT_VALUE_CHANGED,
-	PATH_CHANGED,
-	SEARCH_VALUE_CHANGED,
-} from './flights.actions';
+import { FLIGHTS_LIST_RECIEVED, INPUT_VALUE_CHANGED, PATH_CHANGED } from './flights.actions';
 
 const initialState = {
 	flightsList: [],
 	value: '',
 	path: '',
-	searchValue: '',
 };
 
 const flightsReducer = (state = initialState, action) => {
@@ -29,11 +23,7 @@ const flightsReducer = (state = initialState, action) => {
 				...state,
 				path: action.payload.path,
 			};
-		case SEARCH_VALUE_CHANGED:
-			return {
-				...state,
-				searchValue: action.payload.searchValue,
-			};
+
 		default:
 			return state;
 	}

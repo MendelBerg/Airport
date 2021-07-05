@@ -3,7 +3,6 @@ import { fetchFlights, convertDataBody } from './flightsGateway';
 export const FLIGHTS_LIST_RECIEVED = 'FLIGHTS_LIST_RECIEVED';
 export const INPUT_VALUE_CHANGED = 'INPUT_VALUE_CHANGED';
 export const PATH_CHANGED = 'PATH_CHANGED';
-export const SEARCH_VALUE_CHANGED = 'SEARCH_VALUE_CHANGED';
 
 export const flightsListRecieved = flightsList => {
 	const action = {
@@ -32,17 +31,6 @@ export const pathChanged = path => {
 		type: PATH_CHANGED,
 		payload: {
 			path,
-		},
-	};
-
-	return action;
-};
-
-export const searchChanged = searchValue => {
-	const action = {
-		type: SEARCH_VALUE_CHANGED,
-		payload: {
-			searchValue,
 		},
 	};
 
