@@ -1,7 +1,7 @@
 @import '/src/flights/scss/variables.scss';
 
 .header {
-	height: 65px;
+	height: 92px;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -12,23 +12,12 @@
 	box-shadow: 0 5px 10px rgb(37 40 41 / 30%);
 	z-index: 1000;
 
-	@media (min-width: 768px) {
-		height: 92px;
-	}
-
 	&__logo {
-		width: 160px;
+		width: 25%;
 		text-align: center;
-		@media (min-width: 1200px) {
-			width: 25%;
-		}
 	}
 	&__nav {
-		display: none;
 		flex: 1;
-		@media (min-width: 991px) {
-			display: block;
-		}
 	}
 }
 .nav {
@@ -56,9 +45,6 @@
 }
 
 .logo {
-	width: 125px;
+	width: 40%;
 	cursor: pointer;
-	@media (min-width: 1200px) {
-		width: 40%;
-	}
 }

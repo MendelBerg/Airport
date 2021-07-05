@@ -12,16 +12,16 @@ const Search = ({ inputValueChanged, value }) => {
 	return (
 		<div className="search-flights">
 			<h1 className="search-flights__title">Пошук рейсу</h1>
-			<div className="search-form">
+			<div className="search-field">
 				<i className="fa fa-search" aria-hidden="true"></i>
 				<input
-					className="search-form__input"
+					className="search-field__input"
 					type="text"
 					placeholder="Номер рейсу або місто"
 					value={value}
 					onChange={onChange}
 				/>
-				<Link className="search-form__btn btn" to={`/departures${value ? `?search=${value}` : ''}`}>
+				<Link className="search-field__btn btn" to={`/departures${value ? `?search=${value}` : ''}`}>
 					Знайти
 				</Link>
 			</div>
