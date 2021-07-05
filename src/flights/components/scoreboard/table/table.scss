@@ -1,5 +1,14 @@
 @import '/src/flights/scss/variables.scss';
 
+.not-found {
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	font-size: 30px;
+}
+
 .table {
 	padding-top: 20px;
 	display: flex;
@@ -54,7 +63,6 @@
 		border-bottom: 1px solid $border-color-blue;
 		transition: opacity 0.2s ease-out, border-bottom 0.2s ease-out;
 		cursor: pointer;
-
 
 		&:hover {
 			border-bottom: 0px solid transparent;

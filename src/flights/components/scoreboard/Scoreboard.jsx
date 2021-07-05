@@ -9,6 +9,7 @@ import * as flightsActions from '../../flights.actions';
 
 import Options from './Options.jsx';
 import Table from './table/Table.jsx';
+import FlightsNotFound from './table/FlightsNotFound.jsx';
 
 import './scoreboard.scss';
 
@@ -25,7 +26,8 @@ const Scoreboard = ({ flights, getFlightsList, pathChanged, search }) => {
 					</Route>
 				</Switch>
 			</BrowserRouter>
-			<Table flights={flights} />
+			{flights.length ? <Table flights={flights} /> : <FlightsNotFound/>}
+			
 		</div>
 	);
 };
