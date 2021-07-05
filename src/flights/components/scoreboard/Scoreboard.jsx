@@ -13,16 +13,16 @@ import FlightsNotFound from './table/FlightsNotFound.jsx';
 
 import './scoreboard.scss';
 
-const Scoreboard = ({ flights, getFlightsList, pathChanged, search }) => {
+const Scoreboard = ({ flights, getFlightsList, pathChanged, searchValue }) => {
 	return (
 		<div className="scoreboard">
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/">
-						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} search={search} />
+						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} searchValue={searchValue} />
 					</Route>
 					<Route path="/:pathType">
-						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} search={search} />
+						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} searchValue={searchValue} />
 					</Route>
 				</Switch>
 			</BrowserRouter>
@@ -40,7 +40,7 @@ const mapDispatch = {
 const mapState = state => {
 	return {
 		flights: flightsListSelector(state),
-		search: searchSelector(state),
+		searchValue: searchSelector(state),
 	};
 };
 

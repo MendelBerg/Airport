@@ -9,7 +9,7 @@ import classNames from 'classnames';
 
 import './scoreboard.scss';
 // 
-const Options = ({ getFlightsList, pathChanged, search }) => {
+const Options = ({ getFlightsList, pathChanged, search: searchValue }) => {
 	const { pathType } = useParams();
 	// console.log('pathType', pathType);
 	// const { search } = useLocation();
@@ -18,12 +18,12 @@ const Options = ({ getFlightsList, pathChanged, search }) => {
 
 	useEffect(() => {
 		pathChanged(pathType);
-		getFlightsList(flights, search);
+		getFlightsList(flights, searchValue);
 	}, [pathType]);
 
 	useEffect(() => {
-		getFlightsList(flights, search);
-	}, [search]);
+		getFlightsList(flights, searchValue);
+	}, [searchValue]);
 
 	return (
 		<div className="scoreboard__options">
