@@ -2,6 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import SearchInput from './SearchInput.jsx';
+
 import { connect } from 'react-redux';
 
 import { inputValueSelector, pathSelector } from '../../flights.selectors';
