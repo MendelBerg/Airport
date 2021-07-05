@@ -2,7 +2,19 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import classNames from 'classnames';
+import { useParams } from 'react-router-dom';
+import { compareTime, getTime } from '../../common';
 import './table.scss';
+
+const getStatusText = (shedule, status) => {
+	const { pathType } = useParams();
+
+	if (pathType === 'departures') {
+		return `Вилетів о ${status}`;
+	}
+
+	return compareTime(shedule, getTime(new Date())) < 0 ? `Прибув ${status}` : 'В польоті';
+};
 
 const Table = ({ flights }) => {
 	return (
@@ -31,7 +43,7 @@ const Table = ({ flights }) => {
 							</td>
 							<td className="table__time-field">{shedule}</td>
 							<td className="table__way-field">{city}</td>
-							<td className="table__status-field">Вилетів о {status}</td>
+							<td className="table__status-field">{getStatusText(shedule, status)}</td>
 							<td className="table__company-field">
 								<img src={logo} alt="Company Logo" />
 								<span>{airportName}</span>

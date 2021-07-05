@@ -3,7 +3,7 @@ import moment from 'moment';
 export const currentDay = moment(new Date()).format('DD-MM-Y');
 export const getPathOption = path => (path ? path.slice(0, -1) : 'departure');
 
-const getTime = time => moment(time).format('H:mm');
+export const getTime = time => moment(time).format('H:mm');
 
 function extractFlightsData(flight, pathType) {
 	const { term, timeTakeofFact: status } = flight;
@@ -23,9 +23,9 @@ function extractFlightsData(flight, pathType) {
 	};
 }
 
-function compareTime(a, b) {
-	const [hourA, minsA] = a.shedule.split(':');
-	const [hourB, minsB] = b.shedule.split(':');
+export function compareTime(a, b) {
+	const [hourA, minsA] = a.split(':');
+	const [hourB, minsB] = b.split(':');
 	const comparedHours = hourA - hourB;
 	return comparedHours || minsA - minsB;
 }
@@ -38,7 +38,7 @@ export function convertDataBody(flights, pathType, search) {
 	const flightsToday = flights[pathType]
 		.filter(({ actual }) => actual && moment(actual).format('DD-MM-Y') === currentDay)
 		.map(flight => extractFlightsData(flight, pathType))
-		.sort((a, b) => compareTime(a, b));
+		.sort((a, b) => compareTime(a.shedule, b.shedule));
 
 	return !search
 		? flightsToday
