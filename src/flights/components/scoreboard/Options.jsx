@@ -2,21 +2,28 @@
 /* eslint-disable arrow-body-style */
 import React, { useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
-// import qs from 'qs';
+import qs from 'qs';
 
 import { getPathOption } from '../../common';
 import classNames from 'classnames';
 
 import './scoreboard.scss';
-
+// 
 const Options = ({ getFlightsList, pathChanged, search }) => {
 	const { pathType } = useParams();
+	// console.log('pathType', pathType);
+	// const { search } = useLocation();
+	// console.log('search', qs.parse(search.slice(1)));
 	const flights = getPathOption(pathType);
 
 	useEffect(() => {
 		pathChanged(pathType);
 		getFlightsList(flights, search);
 	}, [pathType]);
+
+	useEffect(() => {
+		getFlightsList(flights, search);
+	}, [search]);
 
 	return (
 		<div className="scoreboard__options">
@@ -98,6 +105,7 @@ const Options = ({ getFlightsList, pathChanged, search }) => {
 				</svg>
 				Приліт
 			</Link>
+			<Link to="/arrivals?search=w">try</Link>
 		</div>
 	);
 };
