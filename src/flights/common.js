@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 export const currentDay = moment(new Date()).format('DD-MM-Y');
+
 export const getPathOption = path => (path ? path.slice(0, -1) : 'departure');
 
 export const getTime = time => moment(time).format('H:mm');
