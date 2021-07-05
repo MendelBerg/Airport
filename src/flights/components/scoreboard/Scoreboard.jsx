@@ -3,38 +3,41 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as tasksActions from '../../tasks.actions';
+
+import { flightsListSelector, searchSelector } from '../../flights.selectors';
+import * as flightsActions from '../../flights.actions';
+
 import Options from './Options.jsx';
 import Table from './table/Table.jsx';
-import './scoreboard.scss';
-import { tasksListSelector, searchSelector } from '../../tasks.selectors';
 
-const Scoreboard = ({ tasks, getTaskList, pathChanged, search }) => {
+import './scoreboard.scss';
+
+const Scoreboard = ({ flights, getFlightsList, pathChanged, search }) => {
 	return (
 		<div className="scoreboard">
 			<BrowserRouter>
 				<Switch>
 					<Route exact path="/">
-						<Options pathChanged={pathChanged} search={search} getTaskList={getTaskList} />
+						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} search={search} />
 					</Route>
-					<Route path="/:flightsFlag">
-						<Options pathChanged={pathChanged} getTaskList={getTaskList} search={search} />
+					<Route path="/:pathType">
+						<Options pathChanged={pathChanged} getFlightsList={getFlightsList} search={search} />
 					</Route>
 				</Switch>
 			</BrowserRouter>
-			<Table flights={tasks} />
+			<Table flights={flights} />
 		</div>
 	);
 };
 
 const mapDispatch = {
-	getTaskList: tasksActions.getTaskList,
-	pathChanged: tasksActions.pathChanged,
+	getFlightsList: flightsActions.getFlightsList,
+	pathChanged: flightsActions.pathChanged,
 };
 
 const mapState = state => {
 	return {
-		tasks: tasksListSelector(state),
+		flights: flightsListSelector(state),
 		search: searchSelector(state),
 	};
 };

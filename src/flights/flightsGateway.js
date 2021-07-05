@@ -9,13 +9,13 @@ export const fetchFlights = () => fetch(baseUrl).then(response => response.json(
 
 const getTime = time => moment(time).format('h:mm');
 
-export function convertDataBody(flights, flag, value) {
-	const targetFlights = flights[flag]
+export function convertDataBody(flights, pathType, value) {
+	const targetFlights = flights[pathType]
 		.filter(({ actual }) => moment(actual).format('DD-MM-Y') === currentDay)
 		.map(flight => {
 			const { term, timeTakeofFact: status } = flight;
-			const shedule = flight[flag === 'departure' ? 'timeDepShedule' : 'timeArrShedule'];
-			const city = flight[flag === 'departure' ? 'airportToID.city' : 'airportFromID.city'];
+			const shedule = flight[pathType === 'departure' ? 'timeDepShedule' : 'timeArrShedule'];
+			const city = flight[pathType === 'departure' ? 'airportToID.city' : 'airportFromID.city'];
 			const { name: airportName, logoSmallName: logo } = flight.airline.en;
 			const { codeShare: flightCode } = flight.codeShareData[0];
 

@@ -3,18 +3,20 @@
 import React, { useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 // import qs from 'qs';
+
 import { getPathOption } from '../../common';
 import classNames from 'classnames';
+
 import './scoreboard.scss';
 
-const Options = ({ getTaskList, pathChanged, search }) => {
-	const { flightsFlag } = useParams();
-	const flights = getPathOption(flightsFlag);
+const Options = ({ getFlightsList, pathChanged, search }) => {
+	const { pathType } = useParams();
+	const flights = getPathOption(pathType);
 
 	useEffect(() => {
-		pathChanged(flightsFlag);
-		getTaskList(flights, search);
-	}, [flightsFlag]);
+		pathChanged(pathType);
+		getFlightsList(flights, search);
+	}, [pathType]);
 
 	return (
 		<div className="scoreboard__options">

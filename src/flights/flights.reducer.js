@@ -3,21 +3,21 @@ import {
 	INPUT_VALUE_CHANGED,
 	PATH_CHANGED,
 	SEARCH_CHANGED,
-} from './tasks.actions';
+} from './flights.actions';
 
 const initialState = {
-	tasksList: [],
+	flightsList: [],
 	value: '',
 	path: '',
 	search: '',
 };
 
-const tasksReducer = (state = initialState, action) => {
+const flightsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FLIGHTS_LIST_RECIEVED:
 			return {
 				...state,
-				tasksList: action.payload.tasksList,
+				flightsList: action.payload.flightsList,
 			};
 		case INPUT_VALUE_CHANGED:
 			return {
@@ -39,4 +39,4 @@ const tasksReducer = (state = initialState, action) => {
 	}
 };
 
-export default tasksReducer;
+export default flightsReducer;

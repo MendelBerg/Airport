@@ -3,18 +3,20 @@
 import React from 'react';
 import SearchInput from './SearchInput.jsx';
 import { connect } from 'react-redux';
-import { inputValueSelector, pathSelector } from '../../tasks.selectors';
-import * as tasksActions from '../../tasks.actions';
+
+import { inputValueSelector, pathSelector } from '../../flights.selectors';
+import * as flightsActions from '../../flights.actions';
+
 import './searchFlights.scss';
 
-const SearchFlights = ({ getTaskList, inputValueChanged, value, path, searchChanged }) => {
+const SearchFlights = ({ getFlightsList, inputValueChanged, value, path, searchChanged }) => {
 	return (
 		<div className="search-flights">
 			<h1 className="search-flights__title">Пошук рейсу</h1>
 			<SearchInput
 				path={path}
 				value={value}
-				getTaskList={getTaskList}
+				getFlightsList={getFlightsList}
 				inputValueChanged={inputValueChanged}
 				searchChanged={searchChanged}
 			/>
@@ -23,9 +25,9 @@ const SearchFlights = ({ getTaskList, inputValueChanged, value, path, searchChan
 };
 
 const mapDispatch = {
-	getTaskList: tasksActions.getTaskList,
-	inputValueChanged: tasksActions.inputValueChanged,
-	searchChanged: tasksActions.searchChanged,
+	getFlightsList: flightsActions.getFlightsList,
+	inputValueChanged: flightsActions.inputValueChanged,
+	searchChanged: flightsActions.searchChanged,
 };
 
 const mapState = state => {

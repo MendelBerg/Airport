@@ -5,11 +5,11 @@ export const INPUT_VALUE_CHANGED = 'INPUT_VALUE_CHANGED';
 export const PATH_CHANGED = 'PATH_CHANGED';
 export const SEARCH_CHANGED = 'SEARCH_CHANGED';
 
-export const tasksListRecieved = tasksList => {
+export const flightsListRecieved = flightsList => {
 	const action = {
 		type: FLIGHTS_LIST_RECIEVED,
 		payload: {
-			tasksList,
+			flightsList,
 		},
 	};
 
@@ -49,10 +49,10 @@ export const searchChanged = search => {
 	return action;
 };
 
-export const getTaskList = (flag, value) => {
+export const getFlightsList = (pathType, value) => {
 	const thunkAction = function (dispatch) {
-		fetchFlights().then(tasksList =>
-			dispatch(tasksListRecieved(convertDataBody(tasksList.body, flag, value))),
+		fetchFlights().then(flightsList =>
+			dispatch(flightsListRecieved(convertDataBody(flightsList.body, pathType, value))),
 		);
 	};
 
