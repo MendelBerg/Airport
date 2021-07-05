@@ -9,8 +9,10 @@ import FlightsNotFound from '../table/FlightsNotFound.jsx';
 
 import './scoreboard.scss';
 
-const Scoreboard = ({ flights, getFlightsList, value }) => {
-	const getTable = () => (flights.length ? <Table flights={flights} /> : <FlightsNotFound />);
+const Scoreboard = ({ flightsList, getFlightsList, value }) => {
+	const getTable = () =>
+		flightsList.length ? <Table flightsList={flightsList} /> : <FlightsNotFound />;
+
 	return (
 		<div className="scoreboard">
 			<Switch>

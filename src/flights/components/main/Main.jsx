@@ -11,12 +11,12 @@ import { flightsListSelector, inputValueSelector } from '../../flights.selectors
 import * as flightsActions from '../../flights.actions';
 
 
-const Main = ({ flights, getFlightsList, inputValueChanged, value }) => {
+const Main = ({ flightsList, getFlightsList, inputValueChanged, value }) => {
 	return (
 		<main className="main">
 			<BrowserRouter>
 				<Search inputValueChanged={inputValueChanged} value={value} />
-				<Scoreboard value={value} flights={flights} getFlightsList={getFlightsList} />
+				<Scoreboard value={value} flightsList={flightsList} getFlightsList={getFlightsList} />
 			</BrowserRouter>
 		</main>
 	);
@@ -29,7 +29,7 @@ const mapDispatch = {
 
 const mapState = state => {
 	return {
-		flights: flightsListSelector(state),
+		flightsList: flightsListSelector(state),
 		value: inputValueSelector(state),
 	};
 };

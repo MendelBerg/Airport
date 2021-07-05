@@ -16,7 +16,7 @@ const getStatusText = (shedule, status) => {
 	return compareTime(shedule, getTime(new Date())) < 0 ? `Прибув ${status}` : 'В польоті';
 };
 
-const Table = ({ flights }) => {
+const Table = ({ flightsList }) => {
 	return (
 		<table className="scoreboard__options table">
 			<thead>
@@ -31,32 +31,34 @@ const Table = ({ flights }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{flights.map(({ term, shedule, city, status, logo, airportName, flightCode }, index) => {
-					return (
-						<tr key={index}>
-							<td
-								className={classNames('table__terminal-field', {
-									'table__terminal-field_blue': term === 'D',
-								})}
-							>
-								<span>{term}</span>
-							</td>
-							<td className="table__time-field">{shedule}</td>
-							<td className="table__way-field">{city}</td>
-							<td className="table__status-field">{getStatusText(shedule, status)}</td>
-							<td className="table__company-field">
-								<img src={logo} alt="Company Logo" />
-								<span>{airportName}</span>
-							</td>
-							<td className="table__flight-field">{flightCode}</td>
-							<td className="table__details-field">
-								<a className="table__details-link" href="#">
-									Деталі рейсу
-								</a>
-							</td>
-						</tr>
-					);
-				})}
+				{flightsList.map(
+					({ term, shedule, city, status, logo, airportName, flightCode }, index) => {
+						return (
+							<tr key={index}>
+								<td
+									className={classNames('table__terminal-field', {
+										'table__terminal-field_blue': term === 'D',
+									})}
+								>
+									<span>{term}</span>
+								</td>
+								<td className="table__time-field">{shedule}</td>
+								<td className="table__way-field">{city}</td>
+								<td className="table__status-field">{getStatusText(shedule, status)}</td>
+								<td className="table__company-field">
+									<img src={logo} alt="Company Logo" />
+									<span>{airportName}</span>
+								</td>
+								<td className="table__flight-field">{flightCode}</td>
+								<td className="table__details-field">
+									<a className="table__details-link" href="#">
+										Деталі рейсу
+									</a>
+								</td>
+							</tr>
+						);
+					},
+				)}
 			</tbody>
 		</table>
 	);

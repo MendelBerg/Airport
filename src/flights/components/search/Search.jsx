@@ -21,7 +21,10 @@ const Search = ({ inputValueChanged, value }) => {
 					value={value}
 					onChange={onChange}
 				/>
-				<Link className="search-field__btn btn" to={`/departures${value ? `?search=${value}` : ''}`}>
+				<Link
+					className="search-field__btn btn"
+					to={`/departures${value ? `?search=${value}` : ''}`}
+				>
 					Знайти
 				</Link>
 			</div>
