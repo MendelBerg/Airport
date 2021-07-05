@@ -1,4 +1,5 @@
-import { fetchFlights, convertDataBody } from './flightsGateway';
+import { fetchFlights } from './flightsGateway';
+import { convertDataBody } from './common';
 
 export const FLIGHTS_LIST_RECIEVED = 'FLIGHTS_LIST_RECIEVED';
 export const INPUT_VALUE_CHANGED = 'INPUT_VALUE_CHANGED';
