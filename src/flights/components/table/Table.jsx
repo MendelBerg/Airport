@@ -7,7 +7,7 @@ import { compareTime, getTime } from '../../common';
 import './table.scss';
 
 const getStatusText = (pathType, shedule, status) => {
-	if (pathType === 'departures') {
+	if (!pathType || pathType === 'departures') {
 		return `Вилетів о ${status}`;
 	}
 
