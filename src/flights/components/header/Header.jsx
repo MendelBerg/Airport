@@ -7,7 +7,7 @@ const Header = () => {
 	return (
 		<header className="header">
 			<div className="header__logo">
-				<img src="./src/flights/img/logo.png" alt="Logo" className="logo" />
+				<img src="https://iev.aero/_nuxt/img/logo@2x.2d2c20b.png" alt="Logo" className="logo" />
 			</div>
 			<nav className="header__nav nav">
 				<ul className="nav__list">
