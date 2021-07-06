@@ -6,9 +6,7 @@ import { useParams } from 'react-router-dom';
 import { compareTime, getTime } from '../../common';
 import './table.scss';
 
-const getStatusText = (shedule, status) => {
-	const { pathType } = useParams();
-
+const getStatusText = (pathType, shedule, status) => {
 	if (pathType === 'departures') {
 		return `Вилетів о ${status}`;
 	}
@@ -17,6 +15,8 @@ const getStatusText = (shedule, status) => {
 };
 
 const Table = ({ flightsList }) => {
+	const { pathType } = useParams();
+
 	return (
 		<table className="scoreboard__options table">
 			<thead>
@@ -44,7 +44,7 @@ const Table = ({ flightsList }) => {
 								</td>
 								<td className="table__time-field">{shedule}</td>
 								<td className="table__way-field">{city}</td>
-								<td className="table__status-field">{getStatusText(shedule, status)}</td>
+								<td className="table__status-field">{getStatusText(pathType, shedule, status)}</td>
 								<td className="table__company-field">
 									<img src={logo} alt="Company Logo" />
 									<span>{airportName}</span>
