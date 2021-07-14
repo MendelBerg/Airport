@@ -1,4 +1,4 @@
-# AirportScoreboard
+# Airport Scoreboard
 
 ### https://awesome-euclid-edd830.netlify.app/
 
