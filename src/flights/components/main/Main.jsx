@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 import Search from '../search/Search.jsx';
 import Scoreboard from '../scoreboard/Scoreboard.jsx';
@@ -32,6 +33,13 @@ const mapState = state => {
 		flightsList: flightsListSelector(state),
 		value: inputValueSelector(state),
 	};
+};
+
+Main.propTypes = {
+  flightsList: PropTypes.array.isRequired,
+  getFlightsList: PropTypes.func.isRequired,
+  inputValueChanged: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default connect(mapState, mapDispatch)(Main);

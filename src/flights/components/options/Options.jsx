@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import qs from 'qs';
+import PropTypes from "prop-types";
 
 import { getPathOption } from '../../common';
 import classNames from 'classnames';
@@ -102,4 +103,9 @@ const Options = ({ getFlightsList }) => {
 		</div>
 	);
 };
+
+Options.propTypes = {
+  getFlightsList: PropTypes.func.isRequired,
+};
+
 export default Options;

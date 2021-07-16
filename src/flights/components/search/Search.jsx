@@ -2,6 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
 import './search.scss';
 
 const Search = ({ inputValueChanged, value }) => {
@@ -30,6 +31,11 @@ const Search = ({ inputValueChanged, value }) => {
 			</div>
 		</div>
 	);
+};
+
+Search.propTypes = {
+  inputValueChanged: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default Search;

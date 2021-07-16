@@ -2,6 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from "prop-types";
 import { useParams } from 'react-router-dom';
 import { compareTime, getTime } from '../../common';
 import './table.scss';
@@ -62,6 +63,10 @@ const Table = ({ flightsList }) => {
 			</tbody>
 		</table>
 	);
+};
+
+Table.propTypes = {
+  flightsList: PropTypes.array.isRequired,
 };
 
 export default Table;

@@ -2,6 +2,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 import Options from '../options/Options.jsx';
 import Table from '../table/Table.jsx';
@@ -31,6 +32,12 @@ const Scoreboard = ({ flightsList, getFlightsList, value }) => {
 			</Switch>
 		</div>
 	);
+};
+
+Scoreboard.propTypes = {
+  flightsList: PropTypes.array.isRequired,
+  getFlightsList: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default Scoreboard;
